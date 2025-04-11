@@ -1,0 +1,148 @@
+
+/* RESET */
+
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+img{
+  display:block;
+  max-width: 100%;
+  height: auto;
+}
+
+button{
+  font: inherit;
+}
+
+/* UTILITIES */
+.offscreen{
+  position: absolute;
+  left:-10000px;
+}
+
+.nowrap{
+  white-space: nowrap;
+}
+
+/* VARIABLES */
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* COLORS */
+  --BGCOLOR: #122559;
+  --COLOR: whitesmoke;
+  --INPUT-BGCOLOR: whitesmoke;
+  --SHADOW-COLOR: whitesmoke;
+  --LIST-BGCOLOR: rgb(14, 74, 133);
+  --BUTTON-BGCOLOR: whitesmoke;
+  --TEXT-HOVER-COLOR: rgb(82, 82, 82);
+
+  /* FONTS */
+  --FS : 1.25rem;
+}
+
+/* GENERAL */
+body {
+  background-color: var(--BGCOLOR);
+  color: var(--COLOR);
+  font-size: var(--FS);
+}
+
+h1{
+  font-size: 3rem;
+  text-align: center;
+  margin:0;
+  position: absolute;
+}
+
+button:hover, button:active{
+  cursor: pointer;
+  box-shadow: 0px 0px 10px var(--SHADOW-COLOR);
+  color:var(--TEXT-HOVER-COLOR);
+}
+
+
+
+/* TOPBAR*/
+
+.header-container{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background-color: #333;
+}
+
+.topbar{
+  display:flex;
+  flex-direction: row;
+  max-width: 8rem;
+  gap:1rem;
+}
+
+.topbar__button,.topbar__img{
+  border-radius: 25%;
+}
+
+.header__right-spacer {
+  margin-left: auto;
+}
+/* MCGG */
+.mcgg{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap:2rem;
+}
+
+.mcgg__list{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  background-color: var(--LIST-BGCOLOR);
+  border-radius: 5%;
+}
+.mcgg__list_input{
+  margin-bottom: 1rem;
+  background-color: var(--INPUT-BGCOLOR);
+  text-align: center;
+}
+
+.mcgg-list__button-container{
+  display: flex;
+  gap: 1rem;
+}
+
+.mcgg-list__button{
+  padding:0.5rem;
+  background-color: var(--BUTTON-BGCOLOR);
+}
+
+.mcgg-status__button-container{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mcgg-status__container > p{
+  margin-bottom: 1rem;
+}
+
+.mcgg__control{
+  padding: 2rem;
+  background-color: var(--LIST-BGCOLOR);
+  height: auto;
+}
+
+.mcgg-status__button{
+  padding: 0.5rem;
+  background-color: var(--BUTTON-BGCOLOR);
+}
+/* MLBB */
