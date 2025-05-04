@@ -27,6 +27,9 @@ button{
   white-space: nowrap;
 }
 
+.darken{
+  filter: brightness(50%);
+}
 /* VARIABLES */
 
 :root {
@@ -57,6 +60,7 @@ h1{
   text-align: center;
   margin:0;
   position: absolute;
+  text-shadow: 1px 1px 4px var(--SHADOW-COLOR);
 }
 
 button:hover, button:active{
@@ -77,6 +81,7 @@ button:hover, button:active{
   justify-content: center;
   padding: 0.75rem;
   background-color: #333;
+  box-shadow: 0px 0px 10px black;
 }
 
 .topbar{
@@ -102,18 +107,19 @@ button:hover, button:active{
   gap:2rem;
 }
 
-.mcgg__list{
+.mcgg-list{
   display:flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0.5rem;
+  padding: 1rem 1rem;
   background-color: var(--LIST-BGCOLOR);
-  border-radius: 5%;
+  border-radius: 1%;
 }
-.mcgg__list_input{
+.mcgg-list__input{
   margin-bottom: 1rem;
   background-color: var(--INPUT-BGCOLOR);
   text-align: center;
+  padding: 0.25rem 0;
 }
 
 .mcgg-list__button-container{
@@ -126,23 +132,62 @@ button:hover, button:active{
   background-color: var(--BUTTON-BGCOLOR);
 }
 
-.mcgg-status__button-container{
-  display: flex;
-  gap: 0.5rem;
-}
-
-.mcgg-status__container > p{
-  margin-bottom: 1rem;
-}
-
-.mcgg__control{
+.mcgg-status{
   padding: 2rem;
   background-color: var(--LIST-BGCOLOR);
   height: auto;
+  border-radius: 1%;
+}
+.mcgg-status__container > p{
+  margin-bottom: 1rem;
+  border: 2px solid black;
+  padding: 0.25rem;
+  white-space: wrap;
+}
+
+.mcgg-status__button-container{
+  display: flex;
+  gap: 0.5rem;
 }
 
 .mcgg-status__button{
   padding: 0.5rem;
   background-color: var(--BUTTON-BGCOLOR);
 }
+
 /* MLBB */
+.roles-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.timer-container{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  align-items: center;
+  padding: 1rem 0;
+  gap:1rem;
+  background-color: var(--LIST-BGCOLOR);
+}
+
+.timer-select__option{
+  color:#333;
+  background-color: #333;
+}
+
+.timer__button{
+  display: flex;
+  place-content: center;
+  border-radius: 50%;
+  max-width: 45%;
+}
+
+.timer__p{
+  position: absolute;
+  text-align: center;
+  color:var(--COLOR);
+  font-size: 2.5rem;
+  transform: translateY(1rem);
+}

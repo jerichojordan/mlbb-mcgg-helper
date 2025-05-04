@@ -26,7 +26,7 @@ export default function EnemyList() {
   return (
     <>
       <div className="mcgg">
-        <div className="mcgg__list">
+        <div className="mcgg-list">
           {names.map((value, index) => (
             <>
               <label htmlFor="name1">
@@ -45,7 +45,7 @@ export default function EnemyList() {
                 value={value}
                 onChange={(e) => handleChange(index, e.target.value)}
                 placeholder={`Enemy ${index + 1}`}
-                className="mcgg__list_input"
+                className="mcgg-list__input"
               />
             </>
           ))}
@@ -56,7 +56,7 @@ export default function EnemyList() {
           </div>
         </div>
 
-        <div className="mcgg__control mcgg-status">
+        <div className="mcgg-status">
           <div className="mcgg-status__container">
             <p>
               Previous Enemy:{" "}

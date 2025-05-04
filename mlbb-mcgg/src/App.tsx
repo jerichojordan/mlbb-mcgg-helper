@@ -24,9 +24,7 @@ function App() {
       </div>
 
       {currentSite.siteName === "MCGG" ? <EnemyList/> : null}
-
-
-      
+      {currentSite.siteName === "MLBB" ? <SpellTimer/> : null}
     </>
   );
 }
