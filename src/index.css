@@ -1,19 +1,18 @@
-
 /* RESET */
 
-*{
+* {
   padding: 0;
-  margin:0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-img{
-  display:block;
+img {
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
-button{
+button {
   font: inherit;
 }
 
@@ -22,24 +21,24 @@ input[type="checkbox"] {
 }
 
 /* UTILITIES */
-.offscreen{
+.offscreen {
   position: absolute;
-  left:-10000px;
+  left: -10000px;
 }
 
-.center{
+.center {
   text-align: center;
 }
 
-.nowrap{
+.nowrap {
   white-space: nowrap;
 }
 
-.darken{
+.darken {
   filter: brightness(25%);
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
 }
 /* VARIABLES */
@@ -57,7 +56,7 @@ input[type="checkbox"] {
   --TEXT-HOVER-COLOR: rgb(82, 82, 82);
 
   /* FONTS */
-  --FS : 0.5rem;
+  --FS: 0.5rem;
 }
 
 /* GENERAL */
@@ -67,35 +66,23 @@ body {
   font-size: var(--FS);
 }
 
-h1{
-  font-size: 3rem;
-  text-align: center;
-  margin:0;
-  position: absolute;
+h1 {
+  font-size: 1.5rem;
+  text-align: right;
+  margin: 0;
   text-shadow: 1px 1px 4px var(--SHADOW-COLOR);
 }
 
-button:hover, button:active{
+button:hover,
+button:active {
   cursor: pointer;
   box-shadow: 0px 0px 10px var(--SHADOW-COLOR);
-  color:var(--TEXT-HOVER-COLOR);
-}
-
-@media (min-width: 768px) {
-  body{
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  body{
-    font-size: 1.25rem;
-  }
+  color: var(--TEXT-HOVER-COLOR);
 }
 
 /* TOPBAR*/
 
-.header-container{
+.header-container {
   display: flex;
   flex-direction: row;
   width: 100vw;
@@ -106,31 +93,33 @@ button:hover, button:active{
   box-shadow: 0px 0px 10px black;
 }
 
-.topbar{
-  display:flex;
-  flex-direction: row;
-  max-width: 8rem;
-  gap:1rem;
-}
-
-.topbar__button,.topbar__img{
-  border-radius: 25%;
-}
-
 .header__right-spacer {
   margin-left: auto;
 }
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+  max-width: 8rem;
+  gap: 1rem;
+}
+
+.topbar__button,
+.topbar__img {
+  border-radius: 25%;
+}
+
 /* MCGG */
-.mcgg{
+.mcgg {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-top: 1.5rem;
-  gap:2rem;
+  gap: 2rem;
 }
 
-.mcgg-list{
-  display:flex;
+.mcgg-list {
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 1rem;
@@ -138,95 +127,109 @@ button:hover, button:active{
   border-radius: 1%;
 }
 
-.mcgg-list-children{
-  display:flex;
+.mcgg-list-children {
+  display: flex;
   flex-direction: column;
 }
 
-.mcgg-list__input{
+.mcgg-list__input {
   margin-bottom: 1rem;
   background-color: var(--INPUT-BGCOLOR);
   text-align: center;
   padding: 0.25rem 0;
 }
 
-.mcgg-list__button-container{
+.mcgg-list__button-container {
   display: flex;
   gap: 1rem;
 }
 
-.mcgg-list__button{
-  padding:0.5rem;
+.mcgg-list__button {
+  padding: 0.5rem;
   background-color: var(--BUTTON-BGCOLOR);
 }
 
-.mcgg-status{
+.mcgg-status {
   padding: 2rem;
   background-color: var(--LIST-BGCOLOR);
   height: auto;
   border-radius: 1%;
 }
-.mcgg-status__container > p{
+.mcgg-status__container > p {
   margin-bottom: 1rem;
   border: 2px solid black;
   padding: 0.25rem;
   white-space: wrap;
 }
 
-.mcgg-status__button-container{
+.mcgg-status__button-container {
   display: flex;
   gap: 0.5rem;
 }
 
-.mcgg-status__button{
+.mcgg-status__button {
   padding: 0.5rem;
   background-color: var(--BUTTON-BGCOLOR);
 }
 
 /* MLBB */
-.roles-container{
+.roles-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.timer-container{
+.timer-container {
   display: flex;
   flex-direction: column;
-  width:100%;
+  width: 100%;
   align-items: center;
   padding: 1rem 0;
-  gap:1rem;
+  gap: 1rem;
   background-color: var(--LIST-BGCOLOR);
 }
-
-.timer-select__option{
-  color:#333;
-  background-color: #333;
-}
-
-.timer__button{
+.timer__button {
   display: flex;
   place-content: center;
   border-radius: 50%;
   max-width: 45%;
 }
 
-.timer__p{
+.timer__p {
   position: absolute;
   text-align: center;
-  color:var(--COLOR);
+  color: var(--COLOR);
   font-size: 2.5rem;
   transform: translateY(1rem);
 }
 
-.timer__select-hero{
+.timer__select-hero {
   display: flex;
   flex-direction: column;
 }
 
-.timer__input-pyt{
+.timer__input-pyt {
   display: flex;
   flex-direction: row;
-  gap:0.5em;
+  gap: 0.5em;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 3rem;
+    text-align: right;
+    position: absolute;
+  }
+  .header__right-spacer {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.25rem;
+  }
 }
