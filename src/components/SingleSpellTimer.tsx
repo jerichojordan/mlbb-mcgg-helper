@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import Select from "react-select";
 import spells from "../assets/spells.json";
 import heroes from "../assets/heroes.json";
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
 type Props = {
   role: string;
@@ -116,6 +117,7 @@ export default function SingleSpellTimer({ role }: Props) {
       </button>
       <p className="center">Select Spell</p>
       <Select
+        isSearchable={!isMobile}
         options={spellOptions}
         styles={selectStyles}
         value={spellOptions.find((opt) => opt.value === selectedSpell)}
