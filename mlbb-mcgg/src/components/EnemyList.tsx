@@ -3,6 +3,13 @@ export default function EnemyList() {
   const [names, setNames] = useState<string[]>(Array(7).fill(""));
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  function getOrdinal(n: number): string {
+    if (n === 0) return "1st";
+    if (n === 1) return "2nd";
+    if (n === 2) return "3rd";
+    return `${n + 1}th`;
+  }
+
   const handleChange = (index: number, value: string) => {
     const newNames = [...names];
     newNames[index] = value;
@@ -28,18 +35,12 @@ export default function EnemyList() {
       <div className="mcgg">
         <div className="mcgg-list">
           {names.map((value, index) => (
-            <>
-              <label htmlFor="name1">
-                {index === 0
-                  ? "1st"
-                  : index === 1
-                  ? "2nd"
-                  : index === 2
-                  ? "3rd"
-                  : index + 1 + "th"}{" "}
-                Enemy
+            <div className={"mcgg-list-children"} key={index}>
+              <label htmlFor={`enemy-${index}`} className="center">
+                {getOrdinal(index)} Enemy
               </label>
               <input
+                id={"enemy"+index.toString()}
                 key={index}
                 type="text"
                 value={value}
@@ -47,10 +48,14 @@ export default function EnemyList() {
                 placeholder={`Enemy ${index + 1}`}
                 className="mcgg-list__input"
               />
-            </>
+            </div>
           ))}
           <div className="mcgg-list__button-container">
-            <button onClick={handleReset} type="submit" className="mcgg-list__button">
+            <button
+              onClick={handleReset}
+              type="submit"
+              className="mcgg-list__button"
+            >
               Reset
             </button>
           </div>
@@ -59,14 +64,14 @@ export default function EnemyList() {
         <div className="mcgg-status">
           <div className="mcgg-status__container">
             <p>
-              Previous Enemy:{" "}
+            Previous Enemy:&nbsp;
               {currentIndex - 1 < 0
                 ? names[currentIndex - 1 + 7]
                 : names[currentIndex - 1]}
             </p>
-            <p>Current Enemy: {names[currentIndex]}</p>
+            <p>Current Enemy:&nbsp;&nbsp;{names[currentIndex]}</p>
             <p>
-              Next Enemy:{" "}
+              Next Enemy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {currentIndex + 1 > 6
                 ? names[currentIndex + 1 - 7]
                 : names[currentIndex + 1]}

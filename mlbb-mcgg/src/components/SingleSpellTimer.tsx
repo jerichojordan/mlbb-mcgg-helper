@@ -1,11 +1,11 @@
 import { useTimer } from "react-timer-hook";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Select from "react-select";
 import spells from "../assets/spells.json";
 import heroes from "../assets/heroes.json";
 
 type Props = {
-  role:string;
+  role: string;
 };
 
 type SkillCooldowns = {
@@ -14,19 +14,12 @@ type SkillCooldowns = {
 
 type HeroesSpells = {
   [name: string]: string;
-}
+};
 
 type SelectObj = {
   value: string;
   label: string;
 };
-
-type SpellObj = {
-  name: string,
-  duration: number,
-  isUsingPYT?: boolean,
-}
-
 
 const spellOptions: SelectObj[] = [
   { value: "Execute", label: "Execute" },
@@ -43,22 +36,38 @@ const spellOptions: SelectObj[] = [
   { value: "Vengeance", label: "Vengeance" },
 ];
 
-export default function SingleSpellTimer({role}:Props) {
+export default function SingleSpellTimer({ role }: Props) {
   const [selectedSpell, setSelectedSpell] = useState<string>(() => {
     return role === "Jungler" ? "Retribution" : "Flicker";
   });
-  const [selectedHero, setSelectedHero] = useState<string>("");
-  
-  const skillCooldowns : SkillCooldowns = spells;
+  const [isUsingPYT, setIsUsingPYT] = useState(false);
+  const skillCooldowns: SkillCooldowns = spells;
   const heroesSpells: HeroesSpells = heroes;
-  const imageSource: string = "MLBB/" + selectedSpell + "_ML.png";
-  
-  const { totalSeconds, restart, pause, isRunning } = useTimer({
-    expiryTimestamp: new Date(
-      new Date().getTime() + skillCooldowns[selectedSpell] * 1000
-    ),
+  const totalSkillCooldown = isUsingPYT
+    ? 0.8 * skillCooldowns[selectedSpell] * 1000
+    : skillCooldowns[selectedSpell] * 1000;
+  const imageSource: string = useMemo(
+    () => "MLBB/" + selectedSpell + "_ML.png",
+    [selectedSpell]
+  );
+  const heroOptions: SelectObj[] = useMemo(
+    () =>
+      Object.entries(heroes).map(([name]) => ({
+        value: name,
+        label: name,
+      })),
+    []
+  );
+
+  const { totalSeconds, restart, isRunning } = useTimer({
+    expiryTimestamp: new Date(new Date().getTime() + totalSkillCooldown),
     autoStart: false,
   });
+
+  const onHeroChange = ({value}:SelectObj) => {
+    restart(new Date(new Date().getTime()));
+    setSelectedSpell(heroesSpells[value])
+  };
 
   const selectStyles = {
     option: (provided: any, state: any) => ({
@@ -75,25 +84,25 @@ export default function SingleSpellTimer({role}:Props) {
   return (
     <>
       <h2>{role}</h2>
-      <p>Select Hero</p>
-      <Select
-        options={spellOptions}
-        styles={selectStyles}
-        isDisabled={role === "Jungler" ? true : false}
-        onChange={(selected: any) => {
-          restart(
-            new Date(new Date().getTime())
-          );
-          setSelectedHero(selected.value)
-          setSelectedSpell(selected.value);
-        }}
-      />
+      <div
+        className={`timer__select-hero ${role === "Jungler" ? "hidden" : ""}`}
+      >
+        <p className="center">Select Hero</p>
+        <Select
+          options={heroOptions}
+          styles={selectStyles}
+          isDisabled={role === "Jungler" ? true : false}
+          onChange={(selected: SelectObj | null) => {
+            if (selected) {
+              onHeroChange(selected)
+            }
+          }}
+        />
+      </div>
       <button
         className="timer__button"
         onClick={() => {
-          restart(
-            new Date(new Date().getTime() + skillCooldowns[selectedSpell] * 1000)
-          );
+          restart(new Date(new Date().getTime() + totalSkillCooldown));
         }}
       >
         <img
@@ -105,19 +114,33 @@ export default function SingleSpellTimer({role}:Props) {
           {totalSeconds > 0 && isRunning ? totalSeconds : ""}
         </p>
       </button>
-      <p>Select Spell</p>
+      <p className="center">Select Spell</p>
       <Select
         options={spellOptions}
         styles={selectStyles}
-        defaultValue={role === "Jungler" ? spellOptions[1]: spellOptions[9]}
+        value={spellOptions.find((opt) => opt.value === selectedSpell)}
         isDisabled={role === "Jungler" ? true : false}
-        onChange={(selected: any) => {
-          restart(
-            new Date(new Date().getTime())
-          );
-          setSelectedSpell(selected.value);
+        onChange={(selected: SelectObj | null) => {
+          if (selected) {
+            restart(new Date(new Date().getTime()));
+            setSelectedSpell(selected.value);
+          }
         }}
       />
+      <div className="timer__input-pyt">
+        <input
+          type="checkbox"
+          name="PYT"
+          onChange={(e) => {
+            restart(new Date(new Date().getTime()));
+            setIsUsingPYT(e.target.checked);
+          }}
+        />
+        <img
+          src="/MLBB/Pull_Yourself_Together.png"
+          alt="Pull Yourself Together Emblem"
+        />
+      </div>
     </>
   );
 }

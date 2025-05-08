@@ -5,9 +5,9 @@ const allRoles: string[] = ["Roamer","EXP Laner","Mid Laner","Gold Laner","Jungl
 export default function SpellTimer() {
   return (
     <div className="roles-container">
-      {allRoles.map((value: string) => {
+      {allRoles.map((value: string, index) => {
         return (
-          <div className="timer-container">
+          <div className="timer-container" key={index}>
             <SingleSpellTimer role={value}/>
           </div>
         );

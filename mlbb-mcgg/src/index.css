@@ -17,10 +17,18 @@ button{
   font: inherit;
 }
 
+input[type="checkbox"] {
+  transform: scale(2); /* Increase or decrease size */
+}
+
 /* UTILITIES */
 .offscreen{
   position: absolute;
   left:-10000px;
+}
+
+.center{
+  text-align: center;
 }
 
 .nowrap{
@@ -28,7 +36,11 @@ button{
 }
 
 .darken{
-  filter: brightness(50%);
+  filter: brightness(25%);
+}
+
+.hidden{
+  visibility: hidden;
 }
 /* VARIABLES */
 
@@ -115,6 +127,12 @@ button:hover, button:active{
   background-color: var(--LIST-BGCOLOR);
   border-radius: 1%;
 }
+
+.mcgg-list-children{
+  display:flex;
+  flex-direction: column;
+}
+
 .mcgg-list__input{
   margin-bottom: 1rem;
   background-color: var(--INPUT-BGCOLOR);
@@ -190,4 +208,15 @@ button:hover, button:active{
   color:var(--COLOR);
   font-size: 2.5rem;
   transform: translateY(1rem);
+}
+
+.timer__select-hero{
+  display: flex;
+  flex-direction: column;
+}
+
+.timer__input-pyt{
+  display: flex;
+  flex-direction: row;
+  gap:0.5em;
 }
