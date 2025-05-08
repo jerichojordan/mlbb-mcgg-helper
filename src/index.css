@@ -57,7 +57,7 @@ input[type="checkbox"] {
   --TEXT-HOVER-COLOR: rgb(82, 82, 82);
 
   /* FONTS */
-  --FS : 1.25rem;
+  --FS : 0.5rem;
 }
 
 /* GENERAL */
@@ -81,7 +81,17 @@ button:hover, button:active{
   color:var(--TEXT-HOVER-COLOR);
 }
 
+@media (min-width: 768px) {
+  body{
+    font-size: 1rem;
+  }
+}
 
+@media (min-width: 1024px) {
+  body{
+    font-size: 1.25rem;
+  }
+}
 
 /* TOPBAR*/
 
