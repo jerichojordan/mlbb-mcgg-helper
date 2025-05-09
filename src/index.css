@@ -114,8 +114,14 @@ button:active {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 1.5rem;
-  gap: 2rem;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.mcgg-instruction{
+  background-color: var(--LIST-BGCOLOR);
+  max-width: 40vw;
+  padding: 1rem;
 }
 
 .mcgg-list {
@@ -158,8 +164,9 @@ button:active {
 .mcgg-status__container > p {
   margin-bottom: 1rem;
   border: 2px solid black;
-  padding: 0.25rem;
+  padding: 0.5rem;
   white-space: wrap;
+  background-color: #122559;
 }
 
 .mcgg-status__button-container {
