@@ -42,8 +42,8 @@ input[type="checkbox"] {
   visibility: hidden;
 }
 
-.warning{
-  color:rgb(200, 0, 0);
+.warning {
+  color: rgb(200, 0, 0);
 }
 /* VARIABLES */
 
@@ -78,7 +78,7 @@ h1 {
 }
 
 button:hover,
-button:active{
+button:active {
   cursor: pointer;
   box-shadow: 0px 0px 10px var(--SHADOW-COLOR);
   color: var(--TEXT-HOVER-COLOR);
@@ -118,10 +118,18 @@ button:active{
   gap: 1rem;
 }
 
-.mcgg-instruction{
+.mcgg-instruction {
   background-color: var(--LIST-BGCOLOR);
   max-width: 40vw;
   padding: 1rem;
+}
+
+.mcgg-instruction__h2 {
+  font-size: 1.5rem;
+}
+
+.mcgg-instruction__p {
+  font-size: 1.5em;
 }
 
 .mcgg-list {
@@ -155,7 +163,7 @@ button:active{
   background-color: var(--BUTTON-BGCOLOR);
 }
 
-.mcgg-list__reset-button{
+.mcgg-list__reset-button {
   min-width: 10rem;
 }
 
@@ -185,52 +193,54 @@ button:active{
   background-color: var(--BUTTON-BGCOLOR);
 }
 
-.mcgg-status__info-button{
+.mcgg-status__info-button {
   width: 48px;
   height: auto;
 }
 
-.mcgg-status__info-button-container{
+.mcgg-status__info-button-container {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
 
-.mcgg-instruction-overlay{
+.mcgg-instruction-overlay {
   position: fixed;
-  top:0;
-  left:0;
-  width:100vw;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
 }
 
-.mcgg-instruction-popup{
+.mcgg-instruction-popup {
   position: relative;
   background-color: #333;
-  padding:2rem;
+  padding: 2rem 1rem 1rem;
   border-radius: 8px;
   width: 90vw;
   text-align: center;
   overflow-y: auto;
 }
 
-.mcgg-instruction-x-button-container{
+.mcgg-instruction-x-button-container {
   display: flex;
   justify-content: end;
 }
 
-.mcgg-instruction-x-button{
-  width:2rem;
+.mcgg-instruction-x-button {
+  width: 2rem;
+  height: 2rem;
 }
 
-.mcgg-instruction-ok-button{
-  width:5rem;
-  margin-top: 2rem;
+.mcgg-instruction-ok-button {
+  width: 5rem;
+  min-height: 2rem;
+  margin-top: 1rem;
 }
 
 /* MLBB */
@@ -275,8 +285,8 @@ button:active{
   gap: 0.5em;
 }
 
-.timer__img{
-  min-width:48px
+.timer__img {
+  min-width: 48px;
 }
 
 @media (min-width: 520px) and (max-width: 768px) {
@@ -285,6 +295,13 @@ button:active{
   }
   h1 {
     font-size: 3rem;
+  }
+  .mcgg-instruction__h2 {
+    font-size: 1rem;
+  }
+
+  .mcgg-instruction__p {
+    font-size: 1em;
   }
 }
 
@@ -297,9 +314,15 @@ button:active{
     text-align: right;
   }
   .timer__p {
-  font-size: 1.5rem;
-  transform: translateY(1rem);
-}
+    font-size: 1.5rem;
+    transform: translateY(1rem);
+  }
+  .mcgg-instruction__h2 {
+    font-size: 1.25rem;
+  }
+  .mcgg-instruction__p {
+    font-size: 1em;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -307,6 +330,10 @@ button:active{
     font-size: 1.25rem;
   }
   .timer__p {
-  font-size: 2.5rem;
-  transform: translateY(1rem);
+    font-size: 2.5rem;
+    transform: translateY(1rem);
+  }
+  .mcgg-instruction__h2 {
+    font-size: 1.5rem;
+  }
 }
