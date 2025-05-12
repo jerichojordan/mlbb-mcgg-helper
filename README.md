@@ -3,7 +3,8 @@
 
 Enhance your Mobile Legends:Bang Bang and Magic Chess: Go Go experience with this helper, enemy list for MCGG and spell timer for MLBB.
 
-![MLBB-MCGG-Helper-Overview](images/Overview.png)
+![MCGG-Helper-Overview](images/Overview.png)
+![MLBB-Helper-Overview](images/Overview1.png)
 
 ## Installation
 
