@@ -245,7 +245,7 @@ button:active{
   flex-direction: column;
   width: 100%;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0.25em 0;
   gap: 1rem;
   background-color: var(--LIST-BGCOLOR);
 }
@@ -260,8 +260,8 @@ button:active{
   position: absolute;
   text-align: center;
   color: var(--COLOR);
-  font-size: 2.5rem;
-  transform: translateY(1rem);
+  font-size: 1.5rem;
+  transform: translateY(0.5rem);
 }
 
 .timer__select-hero {
@@ -273,6 +273,10 @@ button:active{
   display: flex;
   flex-direction: row;
   gap: 0.5em;
+}
+
+.timer__img{
+  min-width:48px
 }
 
 @media (min-width: 520px) and (max-width: 768px) {
@@ -292,10 +296,17 @@ button:active{
     font-size: 3rem;
     text-align: right;
   }
+  .timer__p {
+  font-size: 1.5rem;
+  transform: translateY(1rem);
+}
 }
 
 @media (min-width: 1024px) {
   body {
     font-size: 1.25rem;
   }
+  .timer__p {
+  font-size: 2.5rem;
+  transform: translateY(1rem);
 }

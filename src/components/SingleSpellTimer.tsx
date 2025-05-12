@@ -109,7 +109,7 @@ export default function SingleSpellTimer({ role }: Props) {
         <img
           src={imageSource}
           alt={"Spell Icon:" + selectedSpell}
-          className={isRunning ? "darken" : "" + "timer__img"}
+          className={isRunning ? "timer__img darken" : "timer__img"}
         />
         <p className="timer__p">
           {totalSeconds > 0 && isRunning ? totalSeconds : ""}
