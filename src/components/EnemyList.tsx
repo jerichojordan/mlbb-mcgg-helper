@@ -108,7 +108,7 @@ export default function EnemyList() {
                 onClick={() => setShowPopup(true)}
                 className="mcgg-status__info-button mcgg-status__button"
               >
-                <IoIosInformationCircleOutline />
+                <IoIosInformationCircleOutline size={18}/>
               </button>
             </div>
           ) : null}
@@ -137,7 +137,7 @@ export default function EnemyList() {
               type="submit"
               className="mcgg-list__button mcgg-list__reset-button"
             >
-              <VscDebugRestart />
+              <VscDebugRestart size={20} />
             </button>
           </div>
         </div>
