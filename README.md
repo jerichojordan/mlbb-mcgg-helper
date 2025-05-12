@@ -5,7 +5,7 @@ Enhance your Mobile Legends:Bang Bang and Magic Chess: Go Go experience with thi
 
 ![MLBB-MCGG-Helper-Overview](images/Overview.png)
 
-## Instalation
+## Installation
 
 ```bash
 git clone https://github.com/jerichojordan/mlbb-mcgg-helper.git
