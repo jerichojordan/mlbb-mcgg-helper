@@ -1,10 +1,17 @@
 import { useState } from "react";
+import { useIsMobile } from "../hooks/UseIsMobile";
+import EnemyListInstruction from "./EnemyListInstruction";
+import { IoIosInformationCircleOutline } from "react-icons/io";
+import { VscDebugRestart } from "react-icons/vsc";
 
-const stages : string[] =["1-2","1-3","1-4","2-1","2-2","2-4","2-5"]
+const stages: string[] = ["1-2", "1-3", "1-4", "2-1", "2-2", "2-4", "2-5"];
 
 export default function EnemyList() {
   const [names, setNames] = useState<string[]>(Array(7).fill(""));
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const isMobile = useIsMobile();
+  const [showPopup, setShowPopup] = useState(false);
 
   function getOrdinal(n: number): string {
     if (n === 0) return "1st";
@@ -35,22 +42,38 @@ export default function EnemyList() {
   }
   return (
     <>
-      <div className="mcgg">
-          <div className="mcgg-instruction">
-            <h2>How to Use MCGG List Helper</h2>
-            <p>{`Enter all of the enemies' names from early stages (1-2 until 2-5) that you fight against in the corresponding input box. Starting from stage 2-6 you will know who you fight against and get much benefits from it  The list is still barely working after someone died.`}</p>
-            <br />
-            <h2>Why should I use MCGG List?</h2>
-            <p>{`Better positioning of the hero to protect the damage dealer or make your CC and burst hero more effective, e.g. Marksman and Assassin heroes should try to avoid CC and burst damage as much as possible.`}</p>
-            <p>{`When playing in a team (especially 4V4), keep your teammates alive when facing each other.`}</p>
-            <br />
-            <p>{`Pro Tip: In desktop browser, after entering the first name, press tab to select the next input box`}</p>
+      {showPopup ? (
+        <div className="mcgg-instruction-overlay">
+          <div className="mcgg-instruction-popup">
+            <div className="mcgg-instruction-x-button-container">
+              <button
+                className="mcgg-instruction-x-button"
+                onClick={() => setShowPopup(false)}
+              >
+                X
+              </button>
+            </div>
+            <EnemyListInstruction />
+            <button
+              className="mcgg-instruction-ok-button"
+              onClick={() => setShowPopup(false)}
+            >
+              OK
+            </button>
           </div>
-        
+        </div>
+      ) : null}
+
+      <div className="mcgg">
+        {isMobile ? null : (
+          <div className="mcgg-instruction">
+            <EnemyListInstruction />
+          </div>
+        )}
         <div className="mcgg-status">
           <div className="mcgg-status__container">
             <p>
-            Previous Enemy:&nbsp;
+              Previous Enemy:&nbsp;
               {currentIndex - 1 < 0
                 ? names[currentIndex - 1 + 7]
                 : names[currentIndex - 1]}
@@ -79,8 +102,18 @@ export default function EnemyList() {
               Next Battle
             </button>
           </div>
+          {isMobile ? (
+            <div className="mcgg-status__info-button-container">
+              <button
+                onClick={() => setShowPopup(true)}
+                className="mcgg-status__info-button mcgg-status__button"
+              >
+                <IoIosInformationCircleOutline />
+              </button>
+            </div>
+          ) : null}
         </div>
-        
+
         <div className="mcgg-list">
           {names.map((value, index) => (
             <div className={"mcgg-list-children"} key={index}>
@@ -88,7 +121,7 @@ export default function EnemyList() {
                 {getOrdinal(index)} Enemy
               </label>
               <input
-                id={"enemy"+index.toString()}
+                id={"enemy" + index.toString()}
                 key={index}
                 type="text"
                 value={value}
@@ -102,14 +135,12 @@ export default function EnemyList() {
             <button
               onClick={handleReset}
               type="submit"
-              className="mcgg-list__button"
+              className="mcgg-list__button mcgg-list__reset-button"
             >
-              Reset
+              <VscDebugRestart />
             </button>
           </div>
         </div>
-
-        
       </div>
     </>
   );

@@ -41,6 +41,10 @@ input[type="checkbox"] {
 .hidden {
   visibility: hidden;
 }
+
+.warning{
+  color:rgb(200, 0, 0);
+}
 /* VARIABLES */
 
 :root {
@@ -67,14 +71,14 @@ body {
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-align: right;
   margin: 0;
   text-shadow: 1px 1px 4px var(--SHADOW-COLOR);
 }
 
 button:hover,
-button:active {
+button:active{
   cursor: pointer;
   box-shadow: 0px 0px 10px var(--SHADOW-COLOR);
   color: var(--TEXT-HOVER-COLOR);
@@ -84,20 +88,16 @@ button:active {
 
 .header-container {
   display: flex;
-  flex-direction: row;
+  flex-flow: row nowrap;
   width: 100vw;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0.75rem;
   background-color: #333;
   box-shadow: 0px 0px 10px black;
 }
 
-.header__right-spacer {
-  margin-left: auto;
-}
-
-.topbar {
+.topbar-left {
   display: flex;
   flex-direction: row;
   max-width: 8rem;
@@ -155,8 +155,12 @@ button:active {
   background-color: var(--BUTTON-BGCOLOR);
 }
 
+.mcgg-list__reset-button{
+  min-width: 10rem;
+}
+
 .mcgg-status {
-  padding: 2rem;
+  padding: 1rem;
   background-color: var(--LIST-BGCOLOR);
   height: auto;
   border-radius: 1%;
@@ -177,6 +181,54 @@ button:active {
 .mcgg-status__button {
   padding: 0.5rem;
   background-color: var(--BUTTON-BGCOLOR);
+}
+
+.mcgg-status__info-button{
+  width: 48px;
+  height: auto;
+}
+
+.mcgg-status__info-button-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.mcgg-instruction-overlay{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.mcgg-instruction-popup{
+  position: relative;
+  background-color: #333;
+  padding:2rem;
+  border-radius: 8px;
+  width: 90vw;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.mcgg-instruction-x-button-container{
+  display: flex;
+  justify-content: end;
+}
+
+.mcgg-instruction-x-button{
+  width:2rem;
+}
+
+.mcgg-instruction-ok-button{
+  width:5rem;
+  margin-top: 2rem;
 }
 
 /* MLBB */
@@ -221,14 +273,12 @@ button:active {
   gap: 0.5em;
 }
 
-@media (min-width: 480px) and (max-width: 768px) {
+@media (min-width: 520px) and (max-width: 768px) {
   body {
     font-size: 0.8rem;
   }
   h1 {
     font-size: 3rem;
-    text-align: right;
-    position: absolute;
   }
 }
 
@@ -239,10 +289,6 @@ button:active {
   h1 {
     font-size: 3rem;
     text-align: right;
-    position: absolute;
-  }
-  .header__right-spacer {
-    margin-left: auto;
   }
 }
 

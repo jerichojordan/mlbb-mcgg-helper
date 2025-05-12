@@ -1,12 +1,17 @@
-type TopBarProps = {
-  changeSite: (siteName:string) => void;
+type Props = {
+  currentSite: string;
+  setCurrentSite: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function TopBar(props:TopBarProps) {
+export default function TopBar({ currentSite, setCurrentSite }: Props) {
   return (
-    <>
-      <div className="topbar">
-        <button onClick={()=>props.changeSite("MCGG")} className="topbar__button">
+    <div className="header-container">
+      <div className="topbar-left">
+        <button
+          onClick={() => setCurrentSite("MCGG")}
+          className="topbar__button"
+          title="Open MCGG Helper"
+        >
           <figure>
             <img
               src="MCGG/MCGG_Logo.png"
@@ -16,7 +21,11 @@ export default function TopBar(props:TopBarProps) {
             <figcaption className="offscreen">MCGG Logo</figcaption>
           </figure>
         </button>
-        <button onClick={()=>props.changeSite("MLBB")} className="topbar__button topbar__mlbb">
+        <button
+          onClick={() => setCurrentSite("MLBB")}
+          className="topbar__button"
+          title="Open MLBB Helper"
+        >
           <figure>
             <img
               src="MLBB/MLBB_Logo.png"
@@ -27,6 +36,25 @@ export default function TopBar(props:TopBarProps) {
           </figure>
         </button>
       </div>
-    </>
+      <div className="topbar-middle">
+        <h1>{currentSite} Helper</h1>
+      </div>
+      <div className="topbar-right">
+        <a
+          href="https://github.com/jerichojordan"
+          className="topbar-profile"
+          target="_block"
+          rel="noopener noreferrer"
+          title="Open GitHub"
+        >
+          <img
+            src="/Psyduck.jpg"
+            alt="psyduck profile"
+            className="topbar__button"
+            width={52.75}
+          />
+        </a>
+      </div>
+    </div>
   );
 }
