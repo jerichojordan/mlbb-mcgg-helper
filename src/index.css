@@ -242,7 +242,7 @@ footer {
   background-color: var(--POP-UP-BGCOLOR);
   border-radius: 8px;
   width: 95vw;
-  height: 90vh;
+  height: 95vh;
   text-align: center;
   overflow-y: auto;
 }
