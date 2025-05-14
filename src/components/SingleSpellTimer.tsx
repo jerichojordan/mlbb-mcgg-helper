@@ -3,7 +3,7 @@ import { useState, useMemo } from "react";
 import Select from "react-select";
 import spells from "../assets/spells.json";
 import heroes from "../assets/heroes.json";
-const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+import { useIsMobile } from "../hooks/UseIsMobile";
 
 type Props = {
   role: string;
@@ -42,6 +42,9 @@ export default function SingleSpellTimer({ role }: Props) {
     return role === "Jungler" ? "Retribution" : "Flicker";
   });
   const [isUsingPYT, setIsUsingPYT] = useState(false);
+
+  const isMobile = useIsMobile()
+  const displayRole : string = isMobile ? role.split(" ")[0]: role
   const skillCooldowns: SkillCooldowns = spells;
   const heroesSpells: HeroesSpells = heroes;
   const totalSkillCooldown = isUsingPYT
@@ -84,7 +87,7 @@ export default function SingleSpellTimer({ role }: Props) {
 
   return (
     <>
-      <h2>{role}</h2>
+      <h2 className="timer__h2 center">{displayRole}</h2>
       <div
         className={`timer__select-hero ${role === "Jungler" ? "hidden" : ""}`}
       >
