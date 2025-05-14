@@ -280,7 +280,7 @@ footer {
   border: 1px solid #333;
 }
 
-.timer__h2{
+.timer__h2 {
   background-color: var(--LIST-TITLE-BGCOLOR);
   width: 100%;
   border-bottom: 3px solid #333;
@@ -320,16 +320,15 @@ footer {
   background-color: var(--LIST-BGCOLOR);
 }
 
-.mlbb-instruction__p{
+.mlbb-instruction__p {
   margin: 0.5rem 0.5rem;
 }
 
-.mlbb-instruction__h2{
+.mlbb-instruction__h2 {
   background-color: var(--LIST-TITLE-BGCOLOR);
   width: 100%;
   padding: 0 0.5rem;
 }
-
 
 @media (min-width: 520px) and (max-width: 768px) {
   body {
@@ -341,7 +340,6 @@ footer {
   .mcgg-instruction__h2 {
     font-size: 1rem;
   }
-
   .mcgg-instruction__p {
     font-size: 1em;
   }
@@ -355,10 +353,6 @@ footer {
     font-size: 3rem;
     text-align: right;
   }
-  .timer__p {
-    font-size: 1.5rem;
-    transform: translateY(1rem);
-  }
   .mcgg-instruction__h2 {
     font-size: 1.25rem;
   }
@@ -368,20 +362,33 @@ footer {
   .mcgg-list__input {
     padding: 0.5em 2rem;
   }
+  .mcgg-status__container {
+    min-width: 200px;
+  }
+  .mcgg-status__button {
+    width: 120px;
+  }
   .timer-container {
-  border: 3px solid #333;
-}
+    border: 3px solid #333;
+  }
+  .timer__p {
+    font-size: 1.5rem;
+    transform: translateY(1rem);
+  }
 }
 
 @media (min-width: 1024px) {
   body {
     font-size: 1.25rem;
   }
+  .mcgg-instruction__h2 {
+    font-size: 1.5rem;
+  }
+  .mcgg-status__container {
+    min-width: 250px;
+  }
   .timer__p {
     font-size: 2.5rem;
     transform: translateY(1rem);
-  }
-  .mcgg-instruction__h2 {
-    font-size: 1.5rem;
   }
 }

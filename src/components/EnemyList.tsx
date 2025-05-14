@@ -73,7 +73,7 @@ export default function EnemyList() {
         <div className="mcgg-status">
           <div className="mcgg-status__container">
             <p>
-              Previous Enemy:&nbsp;
+              Prev Enemy:&nbsp;
               {currentIndex - 1 < 0
                 ? names[currentIndex - 1 + 7]
                 : names[currentIndex - 1]}
@@ -92,7 +92,7 @@ export default function EnemyList() {
               onClick={handlePrevButton}
               className="mcgg-status__button"
             >
-              Previous Battle
+              Prev Battle
             </button>
             <button
               type="button"
@@ -125,6 +125,7 @@ export default function EnemyList() {
                 key={index}
                 type="text"
                 value={value}
+                maxLength={20}
                 onChange={(e) => handleChange(index, e.target.value)}
                 placeholder={`Enemy on ${stages[index]}`}
                 className="mcgg-list__input"
