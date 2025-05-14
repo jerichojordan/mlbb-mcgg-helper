@@ -241,14 +241,20 @@ footer {
   position: relative;
   background-color: var(--POP-UP-BGCOLOR);
   border-radius: 8px;
-  width: 96vw;
-  height: 96vh;
+  width: 95vw;
+  height: 95vh;
   text-align: center;
   overflow-y: auto;
 }
 
-.mcgg-instruction-popup > h2{
+.mcgg-instruction-popup > .mcgg-instruction__h2{
   background-color: var(--POP-UP-BGCOLOR);
+  padding: 0 1em;
+}
+
+.mcgg-instruction-popup > .mcgg-instruction__p{
+  padding: 0.5em 0.5em;
+  font-size: 1.75em;
 }
 
 .mcgg-instruction-x-button-container {
@@ -264,7 +270,7 @@ footer {
 .mcgg-instruction-ok-button {
   width: 5rem;
   min-height: 2rem;
-  margin-top: 1rem;
+  margin-bottom: 1em;
 }
 
 /* MLBB */
