@@ -60,7 +60,9 @@ input[type="checkbox"] {
   --BUTTON-BGCOLOR: whitesmoke;
   --TEXT-HOVER-COLOR: rgb(82, 82, 82);
   --LIST-TITLE-BGCOLOR: rgb(12, 64, 116);
+  --HEADER-BGCOLOR: #333;
   --POP-UP-BGCOLOR: #333;
+  --BORDER-COLOR: #333;
 
   /* FONTS */
   --FS: 0.5rem;
@@ -115,7 +117,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem;
-  background-color: #333;
+  background-color: var(--HEADER-BGCOLOR);
   box-shadow: 0px 0px 10px black;
 }
 
@@ -279,13 +281,13 @@ footer {
   align-items: center;
   gap: 1rem;
   background-color: var(--LIST-BGCOLOR);
-  border: 1px solid #333;
+  border: 1px solid var(--BORDER-COLOR);
 }
 
 .timer__h2 {
   background-color: var(--LIST-TITLE-BGCOLOR);
   width: 100%;
-  border-bottom: 3px solid #333;
+  border-bottom: 3px solid var(--BORDER-COLOR);
 }
 
 .timer__button {
@@ -372,7 +374,7 @@ footer {
     width: 120px;
   }
   .timer-container {
-    border: 3px solid #333;
+    border: 3px solid var(--BORDER-COLOR);
   }
   .timer__p {
     font-size: 1.5rem;
