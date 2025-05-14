@@ -17,7 +17,7 @@ button {
 }
 
 input[type="checkbox"] {
-  transform: scale(2); /* Increase or decrease size */
+  transform: scale(2);
 }
 
 /* UTILITIES */
@@ -148,7 +148,8 @@ footer {
   flex-grow: 1;
 }
 
-.mcgg-instruction__h2, .mcgg-instruction__p {
+.mcgg-instruction__h2,
+.mcgg-instruction__p {
   font-size: 1.5rem;
   padding: 1rem;
 }
@@ -249,12 +250,12 @@ footer {
   overflow-y: auto;
 }
 
-.mcgg-instruction-popup > .mcgg-instruction__h2{
+.mcgg-instruction-popup > .mcgg-instruction__h2 {
   background-color: var(--POP-UP-BGCOLOR);
   padding: 0 1em;
 }
 
-.mcgg-instruction-popup > .mcgg-instruction__p{
+.mcgg-instruction-popup > .mcgg-instruction__p {
   padding: 0.5em 0.5em;
   font-size: 1.75em;
 }
@@ -318,10 +319,15 @@ footer {
   flex-direction: column;
 }
 
-.timer__input-pyt {
+.timer-input-pyt {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 0.5em;
+}
+
+.timer-input-pyt__img {
+  width: 30px;
 }
 
 .timer__img {
@@ -354,7 +360,7 @@ footer {
   }
   .mcgg-instruction__p {
     font-size: 1em;
-    padding:0.5em;
+    padding: 0.5em;
   }
 }
 
@@ -387,6 +393,9 @@ footer {
   .timer__p {
     font-size: 1.5rem;
     transform: translateY(1rem);
+  }
+  .timer-input-pyt__img {
+    width: 48px;
   }
 }
 

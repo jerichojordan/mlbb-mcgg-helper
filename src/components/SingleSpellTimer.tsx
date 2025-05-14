@@ -132,7 +132,7 @@ export default function SingleSpellTimer({ role }: Props) {
           }
         }}
       />
-      <div className="timer__input-pyt">
+      <div className="timer-input-pyt">
         <input
           type="checkbox"
           name="PYT"
@@ -144,6 +144,7 @@ export default function SingleSpellTimer({ role }: Props) {
         <img
           src="/MLBB/Pull_Yourself_Together.png"
           alt="Pull Yourself Together Emblem"
+          className="timer-input-pyt__img"
         />
       </div>
     </>
