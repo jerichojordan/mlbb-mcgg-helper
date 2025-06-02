@@ -47,9 +47,6 @@ export default function SingleSpellTimer({ role }: Props) {
   const displayRole : string = isMobile ? role.split(" ")[0]: role
   const skillCooldowns: SkillCooldowns = spells;
   const heroesSpells: HeroesSpells = heroes;
-  const totalSkillCooldown = isUsingPYT
-    ? 0.8 * skillCooldowns[selectedSpell] * 1000
-    : skillCooldowns[selectedSpell] * 1000;
   const imageSource: string = useMemo(
     () => "MLBB/" + selectedSpell + "_ML.png",
     [selectedSpell]
@@ -60,16 +57,22 @@ export default function SingleSpellTimer({ role }: Props) {
         value: name,
         label: name,
       })),
-    []
+    [heroes]
   );
 
-  const { totalSeconds, restart, isRunning } = useTimer({
-    expiryTimestamp: new Date(new Date().getTime() + totalSkillCooldown),
+  const totalSkillCooldown = isUsingPYT
+    ? 0.8 * skillCooldowns[selectedSpell] * 1000
+    : skillCooldowns[selectedSpell] * 1000;
+
+  const expiry = useMemo(() => new Date(new Date().getTime() + totalSkillCooldown), [totalSkillCooldown])
+
+  const { totalSeconds, restart, pause, isRunning } = useTimer({
+    expiryTimestamp: expiry,
     autoStart: false,
   });
-
+  
   const onHeroChange = ({value}:SelectObj) => {
-    restart(new Date(new Date().getTime()));
+    pause()
     setSelectedSpell(heroesSpells[value])
   };
 
@@ -127,7 +130,7 @@ export default function SingleSpellTimer({ role }: Props) {
         isDisabled={role === "Jungler" ? true : false}
         onChange={(selected: SelectObj | null) => {
           if (selected) {
-            restart(new Date(new Date().getTime()));
+            pause()
             setSelectedSpell(selected.value);
           }
         }}
@@ -137,7 +140,7 @@ export default function SingleSpellTimer({ role }: Props) {
           type="checkbox"
           name="PYT"
           onChange={(e) => {
-            restart(new Date(new Date().getTime()));
+            pause()
             setIsUsingPYT(e.target.checked);
           }}
         />
